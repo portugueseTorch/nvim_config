@@ -1,45 +1,34 @@
--- temporary
 vim.cmd("let g:netrw_liststyle = 3")
 
--- line numbers
-vim.opt.relativenumber = true -- show relative numbers
-vim.opt.number = true -- show absolute line number of current line
+local opt = vim.opt
+
+opt.relativenumber = true
+opt.number = true
+opt.cursorline = true
 
 -- tabs & indentation
-vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-vim.opt.shiftwidth = 2 -- 2 spaces for indent width
-vim.opt.expandtab = true -- expand tab to spaces
-vim.opt.autoindent = true -- copy indent from current line when starting new one
-
--- line wrapping
-vim.opt.wrap = false -- disable line wrapping
+opt.tabstop = 2 -- 2 spaces for tabs
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
+opt.autoindent = true -- copy indent from current line when starting new one
+opt.wrap = false
+vim.opt.scrolloff = 8
 
 -- search settings
-vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.ignorecase = true -- ignore case when searching
+opt.smartcase = true -- if search is mixed case, assume case-sensitivity
 
--- cursor line
-vim.opt.cursorline = true -- highlight the current cursor line
-
-
--- appearance
-
--- turn on termguicolors for nightfly colorscheme to work
-
-vim.opt.termguicolors = true -- turn on termguicolors for nightfly colorscheme to work
-vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+-- deps for theme
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
 
 -- backspace
-vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.backspace = "indent,eol,start"
 
 -- clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
--- split windows
-vim.opt.splitright = true -- split vertical window to the right
-vim.opt.splitbelow = true -- split horizontal window to the bottom
-
--- turn off swapfile
-vim.opt.swapfile = false
-
+-- window splitting
+opt.splitright = true
+opt.splitbelow = true
