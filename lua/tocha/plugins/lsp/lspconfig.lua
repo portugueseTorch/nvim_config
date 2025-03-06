@@ -18,6 +18,18 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
+		lspconfig.gopls.setup({
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					analyses = {
+						unsusedparams = true,
+					},
+				},
+			},
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
